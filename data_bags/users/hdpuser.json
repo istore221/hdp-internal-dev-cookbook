@@ -1,0 +1,9 @@
+{
+  "id": "hdpuser",
+  "comment": "hdp user",
+  "password": "$1$CQa1/d1j$4FFLmfjGMxi3cj9pnaG65/",
+  "home": "/home/hdpuser",
+  "shell": "/bin/bash",
+  "platform": "centos_hdp",
+  "sudo": "true"
+}

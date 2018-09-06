@@ -13,14 +13,21 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: centos-7.2
 
 suites:
   - name: default
     run_list:
+      - recipe[selinux]
+      - recipe[ulimit]
       - recipe[hdpcluster::default]
+      - recipe[java]
+      - recipe[hdpcluster::docker]
+      - recipe[hdpcluster::nginx]
     verifier:
       inspec_tests:
         - test/integration/default
-    attributes:
+    attributes: { 'fqdn': 'test.test.org', 'java':
+      { 'install_flavor': 'oracle', 'jdk_version': '8', 'oracle': {'accept_oracle_download_terms':true} },  'selinux':
+      { 'status': 'permissive'}, 'ulimit':
+      { 'users': { 'hdpuser': {'filehandle_limit': '8193'} } } }
