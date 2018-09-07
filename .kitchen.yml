@@ -24,6 +24,7 @@ suites:
       - recipe[java]
       - recipe[hdpcluster::docker]
       - recipe[hdpcluster::nginx]
+      - recipe[hdpcluster::mysql]
     verifier:
       inspec_tests:
         - test/integration/default

@@ -1,6 +1,6 @@
 server {
     listen       80;
-    server_name  hdp_node1.nable.org;
+    server_name  <%= node['fqdn'] %>;
 
     #charset koi8-r;
     #access_log  /var/log/nginx/host.access.log  main;
